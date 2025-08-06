@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/home/froskersss/Documents/programming/python/pc review/VENV/bin/python3" "$0" "$@"
+'''exec' "/home/froskersss/Documents/programming/language specific/python/pc review/VENV/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
