@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}{{ cpu_name }} - CPU Review{% endblock %}
+
+{% block styles %}
+<style>
+.review-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 36px;
+    margin: 40px auto;
+    max-width: 300px;
+}
+.review-text {
+    flex: 2;
+    font-size: 1.2em;
+    color: #222;
+    text-align: center;
+}
+.cpu-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.cpu-image img {
+    max-width: 100%;     /* Limits image width to container width */
+    max-height: 400px;   /* Limits image height */
+    width: auto;         /* Let width scale naturally */
+    height: auto;        /* Let height scale naturally */
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    object-fit: contain; /* Ensure whole image fits */
+    background: #fff;
+}
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="review-container">
+
+    <div class="cpu-image">
+        <img src="{{ url_for('static', filename=cpu_img) }}" alt="{{ cpu_name }} image" />
+    </div>
+        <div class="review-text">
+        <h1>Review for {{ cpu_name }}</h1>
+        <p>{{ review }}</p>
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

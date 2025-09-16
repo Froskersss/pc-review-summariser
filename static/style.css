@@ -1,0 +1,150 @@
+/* ========================= */
+/* General Page Styles */
+/* ========================= */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.header {
+    background-color: #333;
+    padding: 10px;
+}
+
+.home-button {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.home-button:hover {
+    color: #ddd;
+}
+
+.container {
+    margin: 30px auto;
+    max-width: 700px;
+    padding: 30px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+/* ========================= */
+/* Collage Grid */
+/* ========================= */
+.collage-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.collage-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.collage-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+/* ========================= */
+/* Dropdown Navigation */
+/* ========================= */
+.dropdown-nav {
+    margin: 30px 0;
+    font-family: Arial, sans-serif;
+}
+
+.dropdown-menu,
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu > li {
+    position: relative;
+    display: inline-block;
+}
+
+/* Main menu links */
+.dropdown-menu a {
+    display: block;
+    padding: 10px 16px;
+    color: #333;
+    text-decoration: none;
+    background: #f0f0f0;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background: #ddd;
+}
+
+/* First-level submenu (Home → Intel/AMD) */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Push below parent */
+    left: 0;
+    min-width: 180px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    z-index: 1000;
+}
+
+.dropdown-menu li:hover > .submenu {
+    display: block;
+}
+
+.submenu li {
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu a {
+    padding: 8px 14px;
+    color: #444;
+}
+
+.submenu a:hover {
+    background-color: #eee;
+}
+
+/* Second-level submenu (Intel → CPUs, AMD → CPUs) */
+.submenu li .submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* open to the right */
+    min-width: 200px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    z-index: 1000;
+}
+
+.submenu li:hover > .submenu {
+    display: block;
+}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Home - CPU Review{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>CPU Review Summariser</h1>
+
+    <!-- Search bar -->
+    <form method="POST" class="search-form">
+        <input type="text" name="search_cpu" placeholder="Search for a CPU..." required />
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Dropdown menu -->
+    <nav class="dropdown-nav">
+        <ul class="dropdown-menu">
+            <li>
+                <a href="#">Home ▼</a>
+                <ul class="submenu">
+                    <!-- Intel Dropdown -->
+                    <li>
+                        <a href="#">Intel ▶</a>
+                        <ul class="submenu">
+                            {% for cpu in intel_cpus %}
+                            <li>
+                                <a href="{{ url_for('cpu_detail', cpu_name=cpu) }}">{{ cpu }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+
+                    <!-- AMD Dropdown -->
+                    <li>
+                        <a href="#">AMD ▶</a>
+                        <ul class="submenu">
+                            {% for cpu in amd_cpus %}
+                            <li>
+                                <a href="{{ url_for('cpu_detail', cpu_name=cpu) }}">{{ cpu }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Image collage -->
+    <div class="collage-container">
+        {% for img in cpu_images %}
+        <div class="collage-item">
+            <img src="{{ url_for('static', filename=img) }}" alt="CPU Image" />
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
